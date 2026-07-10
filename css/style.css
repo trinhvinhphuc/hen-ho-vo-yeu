@@ -109,8 +109,19 @@ body {
     text-align: center; font-weight: bold; color: #ff4757; font-size: 18px;
     margin-top: 15px; border: 2px solid #ff4757; border-radius: 10px; padding: 5px;
 }
-.ticket-qr { text-align: center; margin-top: 15px; }
-.ticket-qr img { width: 120px; height: 120px; border-radius: 10px; }
+/* Tìm và thay thế đoạn này trong css/style.css */
+.ticket-qr { 
+    text-align: center; 
+    margin-top: 20px; /* Tăng khoảng cách phía trên một chút cho thoáng */
+}
+.ticket-qr img { 
+    width: 180px;  /* Tăng từ 120px lên 180px */
+    height: 180px; /* Tăng từ 120px lên 180px */
+    border-radius: 12px; 
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08); /* Thêm đổ bóng nhẹ cho sang */
+    background: white; /* Đảm bảo nền trắng giúp camera quét nhạy hơn */
+    padding: 5px; /* Tạo viền trắng bao quanh mã QR */
+}
 
 /* Modal Joke */
 .glass-modal {
