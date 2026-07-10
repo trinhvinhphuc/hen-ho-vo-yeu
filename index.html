@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Một món quà nhỏ ❤️</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💌</text></svg>">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/animation.css">
+</head>
+<body>
+    <button id="music-toggle" class="glass-btn">🔇</button>
+    <audio id="bg-music" loop>
+        <source src="" type="audio/mpeg">
+    </audio>
+
+    <div class="app-container">
+        <section id="scene-intro" class="scene active">
+            <div class="heart-loading">❤️</div>
+            <p id="intro-text">Đang kết nối tới trái tim của em...</p>
+        </section>
+
+        <section id="scene-1" class="scene">
+            <div class="envelope-wrapper">
+                <div class="envelope">
+                    <div class="envelope-flap"></div>
+                    <div class="envelope-letter">
+                        <p>For You ❤️</p>
+                    </div>
+                </div>
+                <p class="hint-text">💌 Có một bức thư đang chờ em...</p>
+            </div>
+        </section>
+
+        <section id="scene-2" class="scene">
+            <h1 class="title">Gửi <span id="wife-name-display"></span> ❤️</h1>
+            <div class="typewriter-container">
+                <p id="typewriter-text"></p>
+            </div>
+            <img id="cat-gif" src="" alt="Cute Cat" class="cute-gif hidden">
+            
+            <div class="action-buttons hidden">
+                <button id="btn-yes" class="btn-primary glow-pulse">YES ❤️</button>
+                <button id="btn-no" class="btn-secondary">NO</button>
+            </div>
+            <div id="joke-modal" class="glass-modal hidden">
+                <h2>🤣</h2>
+                <p>Anh biết em đang chọc anh thôi.</p>
+            </div>
+        </section>
+
+        <section id="scene-3" class="scene glass-panel">
+            <h2 class="title pacifico">Yayyyyy ❤️</h2>
+            <p class="subtitle">Vậy mình lên lịch nhé!</p>
+
+            <div class="plan-section">
+                <h3>📅 Chọn ngày hẹn</h3>
+                <input type="date" id="date-picker" class="glass-input">
+            </div>
+
+            <div class="plan-section">
+                <h3>⏰ Chọn giờ</h3>
+                <div class="card-grid" id="time-grid">
+                    <div class="card time-card">16:00</div>
+                    <div class="card time-card">17:00</div>
+                    <div class="card time-card">18:00</div>
+                    <div class="card time-card">19:00</div>
+                    <div class="card time-card">20:00</div>
+                    <div class="card time-card">21:00</div>
+                </div>
+            </div>
+
+            <div class="plan-section">
+                <h3>📍 Địa điểm (Chọn nhiều)</h3>
+                <div class="card-grid" id="place-grid">
+                    <div class="card option-card">☕ Cafe</div>
+                    <div class="card option-card">🍣 Sushi</div>
+                    <div class="card option-card">🎬 Movie</div>
+                    <div class="card option-card">🛍 Shopping</div>
+                    <div class="card option-card">🌅 Sunset</div>
+                    <div class="card option-card">🎡 Khu vui chơi</div>
+                    <div class="card option-card">🌳 Công viên</div>
+                    <div class="card option-card">🍲 Lẩu</div>
+                    <div class="card option-card">🍖 BBQ</div>
+                    <div class="card option-card">🍕 Pizza</div>
+                    <div class="card option-card">🍱 Buffet</div>
+                </div>
+            </div>
+
+            <div class="plan-section">
+                <h3>💕 Muốn anh làm gì?</h3>
+                <div class="card-grid" id="action-grid">
+                    <div class="card option-card">❤️ Nắm tay</div>
+                    <div class="card option-card">🤗 Ôm</div>
+                    <div class="card option-card">📸 Chụp ảnh</div>
+                    <div class="card option-card">🤣 Anh trả tiền</div>
+                </div>
+            </div>
+
+            <div class="plan-section">
+                <h3>💌 Lời nhắn cho anh</h3>
+                <textarea id="message-box" class="glass-input" placeholder="Ví dụ: Nhớ mặc đẹp nha ❤️"></textarea>
+            </div>
+
+            <button id="btn-submit" class="btn-primary">💌 Xác nhận cuộc hẹn</button>
+            
+            <div id="loading-submit" class="hidden">
+                <div class="heart-loading heartbeat">❤️</div>
+                <p>Đang gửi tới chồng...</p>
+            </div>
+        </section>
+
+        <section id="scene-4" class="scene">
+            <h2 class="title pacifico">Anh đã nhận được rồi ❤️</h2>
+            <p class="subtitle">Cảm ơn em. Anh sẽ chuẩn bị thật chu đáo.</p>
+            
+            <div class="love-ticket glass-card">
+                <div class="ticket-header">LOVE TICKET</div>
+                <div class="ticket-body">
+                    <p><strong>To:</strong> <span id="ticket-name"></span></p>
+                    <p><strong>Date:</strong> <span id="ticket-date"></span></p>
+                    <p><strong>Time:</strong> <span id="ticket-time"></span></p>
+                    <div class="ticket-status">CONFIRMED ❤️</div>
+                </div>
+                <div class="ticket-qr">
+                    <img id="qr-code" src="" alt="QR Code">
+                </div>
+            </div>
+            
+            <div id="countdown" class="countdown-text"></div>
+        </section>
+    </div>
+
+    <script src="js/config.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/animation.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
