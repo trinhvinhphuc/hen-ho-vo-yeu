@@ -159,11 +159,26 @@ const UI = {
         document.getElementById('ticket-name').innerText = CONFIG.wifeName;
         document.getElementById('ticket-date').innerText = data.Date;
         document.getElementById('ticket-time').innerText = data.Time;
-        // Thay thế dòng qr-code cũ bằng dòng này:
-        const secretMessage = `Mã vé: ${data.LoveTicketID}\nChồng xác nhận lịch hẹn đi chơi với ${CONFIG.wifeName} nhé! Yêu vợ nhiều lắm ❤️`;
-        document.getElementById('qr-code').src = `https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${encodeURIComponent(secretMessage)}`;
         
-        // Countdown
+        // --- ĐOẠN ĐƯỢC CẬP NHẬT: TỰ ĐỘNG GOM NỘI DUNG VỢ CHỌN VÀO QR ---
+        // Tạo chuỗi văn bản chi tiết dựa trên những gì vợ đã bấm
+        const qrContent = `🎫 VÉ HẸN HÒ CHÍNH THỨC
+--------------------------
+💖 Khách mời: ${CONFIG.wifeName}
+📅 Ngày hẹn: ${data.Date}
+⏰ Thời gian: ${data.Time}
+📍 Địa điểm: ${data.Places || 'Tùy anh chọn ạ'}
+💕 Hoạt động: ${data.Actions || 'Bí mật nha'}
+💌 Lời nhắn: ${data.Message || 'Không có ạ'}
+--------------------------
+Mã vé: ${data.LoveTicketID}
+Chồng đã xác nhận lịch. Hẹn gặp vợ yêu nhé! ❤️`;
+
+        // Nạp chuỗi văn bản đã được mã hóa này vào API tạo mã QR
+        document.getElementById('qr-code').src = `https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${encodeURIComponent(qrContent)}`;
+        // -------------------------------------------------------------
+        
+        // Đoạn code Countdown giữ nguyên phía dưới...
         const targetDate = new Date(data.Date);
         targetDate.setHours(0,0,0,0);
         
